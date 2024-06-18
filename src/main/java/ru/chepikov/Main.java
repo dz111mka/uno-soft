@@ -37,9 +37,6 @@ public class Main {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] numbers = line.replaceAll("\"", "").split(";", -1);
-                /*for (int i = 0; i < numbers.length; i++) {
-                    numbers[i] = numbers[i].replaceAll("^\"|\"$", "");
-                }*/
                 if (!Arrays.stream(numbers).allMatch(str -> NumberUtils.isParsable(str) || str.isBlank()))
                     continue;
 
