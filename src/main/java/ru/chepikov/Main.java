@@ -36,12 +36,13 @@ public class Main {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] numbers = line.split(";");
-                for (int i = 0; i < numbers.length; i++) {
+                String[] numbers = line.replaceAll("\"", "").split(";", -1);
+                /*for (int i = 0; i < numbers.length; i++) {
                     numbers[i] = numbers[i].replaceAll("^\"|\"$", "");
-                }
-                if (!Arrays.stream(numbers).allMatch(str -> NumberUtils.isParsable(str) || str.isEmpty()))
+                }*/
+                if (!Arrays.stream(numbers).allMatch(str -> NumberUtils.isParsable(str) || str.isBlank()))
                     continue;
+
 
                 TreeSet<Integer> foundInGroups = new TreeSet<>();
                 List<NewWord> newWords = new ArrayList<>();
