@@ -87,7 +87,7 @@ public class Main {
     }
 
     private static void writeToFile(List<Set<String>> groups) {
-        File file = new File("output.txt");
+        File file = new File("output.csv");
         long countOfGroups = 0;
 
         try (FileWriter writer = new FileWriter(file, false)) {
